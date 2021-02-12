@@ -20,6 +20,11 @@ if(isset($_GET['url']) ) {
   }else {
 $_succeeded = true; 
 preg_match('@^(?:http.?://)?([^/]+)@i', $url, $matches);
+$result = file_get_contents($url, false, stream_context_create(['socket' => ['bindto' => '0:0']])); // force IPv4
+
+preg_match('/aria-label="Download file"\n.+href="(.*)"/', $result, $matches);
+
+$result = urldecode($matches[1]);
 
 }
 
@@ -30,11 +35,6 @@ else {
       $_succeeded = false;
 
 }
-$result = file_get_contents($url, false, stream_context_create(['socket' => ['bindto' => '0:0']])); // force IPv4
-
-preg_match('/aria-label="Download file"\n.+href="(.*)"/', $result, $matches);
-
-$result = urldecode($matches[1]);
 
 
 
