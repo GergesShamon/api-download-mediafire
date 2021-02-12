@@ -39,12 +39,9 @@ else {
 
 
 
-$output = array();
-$output[message] =  $_succeeded;
-$output[url] = $result;
-$output[succeeded] = $_msg;
 
 
-echo json_encode($output);
+
+echo '{"succeeded":'. $_succeeded.',"message":"'.$_msg.'","url":"'.$result.'"}';
 
 ?>
