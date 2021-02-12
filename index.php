@@ -17,7 +17,7 @@ if($url) {
 
     $_msg = 'Please input a valid mediafire url.';
 
-    
+      $_succeeded = false;
 
   }else {
 $_succeeded = true; 
@@ -33,7 +33,7 @@ preg_match('/aria-label="Download file"\n.+href="(.*)"/', $result, $matches);
 
 $result = urldecode($matches[1]);
 
-$output = [];
+
 
 $output[] = ['succeeded' => $_succeeded, 'url' => $result,'message'=>$_msg];
 
