@@ -9,7 +9,7 @@ $support_domain = 'www.mediafire.com';
 
 
 if(isset($_GET['url']) ) {
- $url = isset($_GET['url']) 
+ $url = $_GET['url'];
   $host = $matches[1];
 
   if($host != $support_domain) {
