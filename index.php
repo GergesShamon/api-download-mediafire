@@ -5,24 +5,25 @@ $url = isset($_GET['url']) ? htmlspecialchars($_GET['url']) : null;
 $support_domain = 'www.mediafire.com';
 
 if(empty($url)) {
-
+  $_msg = 'Please input a valid mediafire url.';
   $_succeeded = false;
 
 }
 
 if($url) {
-
-	$_succeeded = true;  preg_match('@^(?:http.?://)?([^/]+)@i', $url, $matches);
-
   $host = $matches[1];
 
   if($host != $support_domain) {
 
-    echo 'Please input a valid mediafire url.';
+    $_msg = 'Please input a valid mediafire url.';
 
-    exit;
+    
 
-  }
+  }else {
+$_succeeded = true; 
+preg_match('@^(?:http.?://)?([^/]+)@i', $url, $matches);
+
+}
 
 }
 
@@ -34,7 +35,7 @@ $result = urldecode($matches[1]);
 
 $output = [];
 
-$output[] = ['succeeded' => $_succeeded, 'url' => $result];
+$output[] = ['succeeded' => $_succeeded, 'url' => $result,'message'=>$_msg];
 
 $output = json_encode($output);
 
