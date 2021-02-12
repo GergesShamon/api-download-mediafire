@@ -26,7 +26,12 @@ preg_match('@^(?:http.?://)?([^/]+)@i', $url, $matches);
 }
 
 }
+else {
+      $_msg = 'Please input a valid mediafire url.';
 
+      $_succeeded = false;
+
+}
 $result = file_get_contents($url, false, stream_context_create(['socket' => ['bindto' => '0:0']])); // force IPv4
 
 preg_match('/aria-label="Download file"\n.+href="(.*)"/', $result, $matches);
