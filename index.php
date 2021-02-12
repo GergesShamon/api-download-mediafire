@@ -1,16 +1,14 @@
 <?php
 
+$_msg;
+$_succeeded;
+$result;
 $url = isset($_GET['url']) ? htmlspecialchars($_GET['url']) : null;
 
 $support_domain = 'www.mediafire.com';
 
-if(empty($url)) {
-  $_msg = 'Please input a valid mediafire url.';
-  $_succeeded = false;
 
-}
-
-if($url) {
+if(isset($_GET['url']) ) {
   $host = $matches[1];
 
   if($host != $support_domain) {
