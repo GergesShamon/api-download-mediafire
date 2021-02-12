@@ -43,6 +43,6 @@ $result = urldecode($matches[1]);
 
 
 
-echo '{"succeeded":'.$_succeeded.',"message":"'.$_msg.'","url":"'.$result.'"}';
+echo '{"succeeded":"'.$_succeeded.'","message":"'.$_msg.'","url":"'.$result.'"}';
 
 ?>
