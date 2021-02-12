@@ -40,7 +40,7 @@ $result = urldecode($matches[1]);
 
 
 
-$output[] = ['succeeded' => $_succeeded, 'url' => $result,'message'=>$_msg];
+$output= 'succeeded' => $_succeeded, 'url' => $result,'message'=>$_msg;
 
 $output = json_encode($output);
 
